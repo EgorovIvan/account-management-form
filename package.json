@@ -1,0 +1,43 @@
+{
+  "name": "account-management-form",
+  "version": "1.0.0",
+  "description": "Форма управления учетными записями",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "vue",
+    "typescript",
+    "vite",
+    "pinia",
+    "mui"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@quasar/extras": "^1.17.0",
+    "@types/node": "^20.0.0",
+    "@vitejs/plugin-vue": "^5.0.0",
+    "@vueuse/core": "^10.0.0",
+    "pinia": "^2.1.0",
+    "quasar": "^2.0.0",
+    "typescript": "^5.9.3",
+    "vite": "^5.0.0",
+    "vue": "^3.4.0",
+    "vuetify": "^3.10.5"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-vue": "^9.0.0",
+    "prettier": "^3.0.0"
+  }
+}
