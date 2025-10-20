@@ -123,8 +123,13 @@ import type { UserAccount, AccountType } from '@/types'
 
 const accountsStore = useAccountsStore()
 
+/**
+ * Интерфейс учетной записи с ошибками валидации
+ */
 interface AccountWithErrors extends UserAccount {
+  /** Строковое представление меток */
   labelsString: string
+  /** Ошибки валидации полей */
   errors: {
     login: string[]
     password: string[]
@@ -133,11 +138,17 @@ interface AccountWithErrors extends UserAccount {
 
 const accounts = ref<AccountWithErrors[]>([])
 
+/**
+ * Опции для выбора типа учетной записи
+ */
 const accountTypeOptions = [
   { title: 'LDAP', value: 'LDAP' },
   { title: 'Локальная', value: 'Локальная' }
 ]
 
+/**
+ * Добавление новой учетной записи в список
+ */
 const addNewAccount = () => {
   const newAccount: AccountWithErrors = {
     id: Date.now().toString(),
@@ -154,6 +165,10 @@ const addNewAccount = () => {
   accounts.value.push(newAccount)
 }
 
+/**
+ * Удаление учетной записи из списка
+ * @param id - идентификатор записи для удаления
+ */
 const removeAccount = (id: string) => {
   const index = accounts.value.findIndex(account => account.id === id)
   if (index !== -1) {
@@ -162,6 +177,10 @@ const removeAccount = (id: string) => {
   }
 }
 
+/**
+ * Обработка изменения типа учетной записи
+ * @param account - учетная запись
+ */
 const onAccountTypeChange = (account: AccountWithErrors) => {
   if (account.type === 'LDAP') {
     account.password = null
@@ -171,6 +190,10 @@ const onAccountTypeChange = (account: AccountWithErrors) => {
   validateAndSaveAccount(account)
 }
 
+/**
+ * Валидация и сохранение учетной записи
+ * @param account - учетная запись для валидации
+ */
 const validateAndSaveAccount = (account: AccountWithErrors) => {
   const errors = {
     login: [] as string[],
@@ -212,6 +235,9 @@ const validateAndSaveAccount = (account: AccountWithErrors) => {
   }
 }
 
+/**
+ * Загрузка учетных записей из store
+ */
 const loadAccounts = () => {
   accounts.value = accountsStore.accounts.map(account => ({
     ...account,

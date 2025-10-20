@@ -4,6 +4,10 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import { aliases, mdi } from 'vuetify/iconsets/mdi'
 
+/**
+ * Конфигурация Vuetify с Material Design иконками
+ * и кастомной цветовой схемой
+ */
 export default createVuetify({
   components,
   directives,
